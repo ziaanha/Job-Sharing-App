@@ -1,0 +1,134 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CareerNest ♡ Find Your Next Chapter</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="navbar">
+    <a class="logo" href="#"><span class="logo-icon">♡</span> CareerNest<span class="logo-dot">.</span></a>
+    <nav>
+      <a href="#jobs">Explore jobs</a>
+      <a href="#tracker">My applications</a>
+      <a href="#saved">Saved ♡</a>
+    </nav>
+    <a class="nav-cta" href="#jobs">Find my job ↗</a>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <span class="eyebrow"><span class="sparkle">✦</span> YOUR NEXT CHAPTER STARTS HERE</span>
+        <h1>A little closer<br>to your <em>dream job.</em></h1>
+        <p>Good things are growing. Discover opportunities, save your favourites, and find a job that feels right for you. ♡</p>
+        <a class="primary-btn" href="#jobs">Explore opportunities <span>↗</span></a>
+        <div class="hero-note"><span class="avatar-stack">♡ ✿ ☆</span> Your next opportunity is waiting.</div>
+      </div>
+      <div class="hero-art">
+        <div class="art-circle"></div>
+        <div class="art-card art-card-back"><span>✿</span><p>dream big</p></div>
+        <div class="art-card art-card-front">
+          <div class="art-top"><span>YOUR CAREER ERA</span><span>♡</span></div>
+          <div class="art-flower">✿</div>
+          <h3>Make room<br>for something<br><em>beautiful.</em></h3>
+          <div class="art-bottom">little steps, big dreams ✧</div>
+        </div>
+        <span class="floating-star star-one">✦</span>
+        <span class="floating-star star-two">♡</span>
+        <span class="floating-star star-three">✿</span>
+        <div class="art-caption">a fresh start looks good on you ♡</div>
+      </div>
+    </section>
+
+    <section class="search-section" id="jobs">
+      <div class="section-heading">
+        <div><span class="eyebrow">LET'S FIND YOUR THING</span><h2>Jobs you'll <em>love.</em></h2></div>
+        <span class="result-count" id="resultCount">12 opportunities</span>
+      </div>
+
+      <div class="search-box">
+        <span class="search-icon">⌕</span>
+        <input id="searchInput" type="search" placeholder="Job title, company or keyword..." />
+        <span class="search-divider"></span>
+        <span class="location-icon">⌖</span>
+        <input id="locationInput" type="search" placeholder="City or remote" />
+        <button id="searchBtn" class="primary-btn">Search ♡</button>
+      </div>
+
+      <div class="filters">
+        <select id="typeFilter" aria-label="Job type">
+          <option value="">All job types</option>
+          <option>Full-time</option><option>Part-time</option>
+          <option>Internship</option><option>Remote</option>
+        </select>
+        <select id="levelFilter" aria-label="Experience level">
+          <option value="">All experience levels</option>
+          <option>Entry-level</option><option>Fresher</option>
+          <option>Experienced</option>
+        </select>
+        <select id="salaryFilter" aria-label="Salary">
+          <option value="">Any salary</option>
+          <option value="15000">₹15,000+ / month</option>
+          <option value="25000">₹25,000+ / month</option>
+          <option value="40000">₹40,000+ / month</option>
+        </select>
+        <button id="clearFilters" class="text-btn">Clear filters ↺</button>
+      </div>
+
+      <div class="tabs">
+        <button class="tab active" data-tab="all">All opportunities <span id="allCount">12</span></button>
+        <button class="tab" data-tab="saved" id="saved">Saved ♡ <span id="savedCount">0</span></button>
+        <button class="tab" data-tab="applied">Applied <span id="appliedCount">0</span></button>
+      </div>
+
+      <div class="job-grid" id="jobGrid"></div>
+      <div class="empty-state" id="emptyState" hidden>
+        <div>♡</div><h3>No jobs found just yet</h3>
+        <p>Try another search or clear your filters.</p>
+        <button class="primary-btn" id="emptyReset">Show all jobs ↗</button>
+      </div>
+    </section>
+
+    <section class="tracker-section" id="tracker">
+      <div class="tracker-copy">
+        <span class="eyebrow">YOUR LITTLE PROGRESS CORNER</span>
+        <h2>Every step <em>counts.</em></h2>
+        <p>Keep track of the opportunities you've applied for. One step at a time, you've got this! ♡</p>
+      </div>
+      <div class="tracker-stats">
+        <div class="stat-card"><span class="stat-icon">♡</span><strong id="statSaved">0</strong><span>Saved jobs</span></div>
+        <div class="stat-card"><span class="stat-icon">✉</span><strong id="statApplied">0</strong><span>Applications</span></div>
+        <div class="stat-card"><span class="stat-icon">✿</span><strong id="statInterview">0</strong><span>Interviews</span></div>
+      </div>
+    </section>
+
+    <section class="applications-section">
+      <div class="section-heading">
+        <div><span class="eyebrow">YOUR CAREER JOURNEY</span><h2>Application <em>diary.</em></h2></div>
+        <span class="result-count">Your progress, in one place</span>
+      </div>
+      <div class="application-list" id="applicationList"></div>
+    </section>
+  </main>
+
+  <footer>
+    <a class="logo" href="#"><span class="logo-icon">♡</span> CareerNest<span class="logo-dot">.</span></a>
+    <p>Made with love for your next chapter. ✿</p>
+    <span>© 2026 CareerNest · Demo project</span>
+  </footer>
+
+  <div class="modal-overlay" id="jobModal" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" id="modalClose" aria-label="Close">×</button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="script.js"></script>
+</body>
+</html>
